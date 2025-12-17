@@ -1,0 +1,74 @@
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: 'Jeju Hallasan', cursive;
+}
+
+.screen-start {
+  min-height: 100vh;
+  background: #1b1043;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 28px;
+  padding: 48px 16px;
+  color: #fff;
+  text-align: center;
+}
+
+.start-top {
+  position: relative;
+  width: min(900px, 92vw);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.game-title {
+  margin: 0;
+  font-size: clamp(40px, 6vw, 80px);
+  letter-spacing: 1px;
+}
+
+
+.game-logo {
+  position: absolute;
+  right: 0;
+  top: -10px;
+  width: clamp(90px, 12vw, 160px);
+  height: auto;
+}
+
+.game-tagline {
+  margin: 0;
+  width: min(720px, 92vw);
+  font-size: clamp(16px, 2vw, 22px);
+  opacity: 0.9;
+}
+
+.start-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-top: 10px;
+}
+
+.btn {
+  display: inline-block;
+  text-decoration: none;
+  color: #fff;
+  padding: 18px 34px;
+  border-radius: 16px;
+  font-size: 20px;
+  min-width: 320px;
+  text-align: center;
+  background: rgba(255,255,255,0.14);
+}
+
+.btn-primary { background: rgba(255,255,255,0.22); }
+.btn-secondary { background: rgba(255,255,255,0.14); }
+
+.btn:hover { filter: brightness(1.1); }
+
