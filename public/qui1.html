@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Clue 1 – Crime Scene</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<a href="overview.html" class="back-arrow">←</a>
+
+<main class="screen screen-start">
+
+<h1>Clue found: Hotel Room</h1>
+
+<p class="instructions-text">
+The victim was found in the hotel room.  
+There are no signs of forced entry.
+</p>
+
+<p><strong>What does this suggest?</strong></p>
+
+<button class="btn" onclick="checkQuiz('quiz1', false)">The door was broken open</button>
+<button class="btn" onclick="checkQuiz('quiz1', true)">The victim knew the attacker</button>
+<button class="btn" onclick="checkQuiz('quiz1', false)">The room was empty</button>
+
+<p id="feedback"></p>
+
+</main>
+
+<script src="js/app.js"></script>
+</body>
+</html>
