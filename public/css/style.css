@@ -72,3 +72,87 @@ body {
 
 .btn:hover { filter: brightness(1.1); }
 
+
+/* Back arrow */
+.back-arrow {
+  position: absolute;
+  top: 24px;
+  left: 24px;
+  font-size: 36px;
+  text-decoration: none;
+  color: white;
+}
+
+.back-arrow:hover {
+  opacity: 0.7;
+}
+
+
+/* Instructions page */
+.instructions-title {
+  margin: 0 0 20px 0;
+  font-size: clamp(36px, 5vw, 64px);
+}
+
+.instructions-text {
+  max-width: 720px;
+  font-size: 20px;
+  margin-bottom: 30px;
+}
+
+.instructions-list {
+  max-width: 720px;
+  text-align: left;
+  font-size: 18px;
+  line-height: 1.6;
+  margin-bottom: 30px;
+}
+
+.warning-text {
+  color: #ff4d4d;
+  font-size: 18px;
+  margin-bottom: 40px;
+}
+
+
+/* Overview page */
+.overview {
+  gap: 24px;
+}
+
+.overview-title {
+  margin-bottom: 10px;
+}
+
+.overview-subtitle {
+  margin-bottom: 30px;
+  opacity: 0.9;
+}
+
+.overview-item {
+  width: min(720px, 92vw);
+  padding: 16px 0;
+  border-bottom: 1px solid rgba(255,255,255,0.3);
+}
+
+.overview-item h2 {
+  margin: 0 0 6px 0;
+}
+
+.status {
+  margin: 0 0 8px 0;
+}
+
+.status.solved {
+  color: #3cff6f;
+}
+
+.status.locked {
+  color: #ff4d4d;
+}
+
+.description {
+  margin: 0;
+  opacity: 0.95;
+}
+
