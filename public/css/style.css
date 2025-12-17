@@ -1,13 +1,15 @@
-* { box-sizing: border-box; }
+* {
+  box-sizing: border-box;
+}
 
 body {
   margin: 0;
-  font-family: 'Jeju Hallasan', cursive;
+  font-family: 'Jeju Myeongjo', serif;
 }
 
 .screen-start {
   min-height: 100vh;
-  background: #1b1043;
+  background: radial-gradient(circle at top, #24125f, #1b1043);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -27,32 +29,48 @@ body {
 }
 
 .game-title {
-  margin: 0;
-  font-size: clamp(40px, 6vw, 80px);
-  letter-spacing: 1px;
+  font-family: 'Special Elite', monospace;
+  font-size: clamp(44px, 6vw, 82px);
+  letter-spacing: 2px;
+  position: relative;
+  z-index: 2;
 }
-
 
 .game-logo {
   position: absolute;
-  right: 0;
-  top: -10px;
-  width: clamp(90px, 12vw, 160px);
+  right: -1px;
+  top: -100px;
+  width: clamp(250px, 70vw, 200px);
   height: auto;
+  pointer-events: none;
 }
 
 .game-tagline {
   margin: 0;
+  margin-top: -50px;
   width: min(720px, 92vw);
   font-size: clamp(16px, 2vw, 22px);
   opacity: 0.9;
 }
 
+@media (max-width: 480px) {
+  .game-tagline {
+    margin-top: -6px;
+  }
+}
+
 .start-actions {
   display: flex;
   flex-direction: column;
+  align-items: center;
   gap: 16px;
-  margin-top: 10px;
+  margin-top: clamp(40px, 8vw, 96px);
+}
+
+@media (max-width: 480px) {
+  .start-actions {
+    margin-top: 20px;
+  }
 }
 
 .btn {
@@ -64,11 +82,20 @@ body {
   font-size: 20px;
   min-width: 320px;
   text-align: center;
-  background: rgba(255,255,255,0.14);
+  font-family: 'Special Elite', monospace;
+  transition: transform 0.15s ease, filter 0.15s ease;
 }
 
-.btn-primary { background: rgba(255,255,255,0.22); }
-.btn-secondary { background: rgba(255,255,255,0.14); }
+.btn-primary {
+  background: #6f6bb8;
+}
 
-.btn:hover { filter: brightness(1.1); }
+.btn-secondary {
+  background: rgba(255, 255, 255, 0.18);
+  min-width: 220px;
+}
 
+.btn:hover {
+  filter: brightness(1.1);
+  transform: translateY(-2px);
+}
