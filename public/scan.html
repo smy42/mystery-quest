@@ -1,35 +1,68 @@
 <!doctype html>
-<html lang="en">
+<html lang="de">
 <head>
-  <meta charset="utf-8">
-  <title>Scan Marker</title>
-  <link rel="stylesheet" href="css/style.css">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <title>Scan</title>
+
+  <link rel="stylesheet" href="css/style.css" />
+
+  <script src="https://aframe.io/releases/1.5.0/aframe.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/gh/AR-js-org/AR.js/aframe/build/aframe-ar.js"></script>
 </head>
-<body>
 
-<main class="screen screen-start">
-  <h1>Scanning marker...</h1>
-  <p class="instructions-text">
-    Please hold the marker steady.
-  </p>
-</main>
+<body class="scan-page">
+  <div class="scan-ui">
+    <div class="scan-topbar">
+      <button class="scan-back" onclick="history.back()">←</button>
+    </div>
 
-<script src="js/app.js"></script>
-<script>
-  const order = ["quiz1", "quiz2", "quiz3", "quiz4", "quiz5"];
+    <h1 class="scan-title">Scan a marker</h1>
+    <p class="scan-subtitle">Place marker inside the frame</p>
 
-  const nextQuiz = order.find(q => localStorage.getItem(q) !== "solved");
+    <div class="scan-frame">
+      <div class="scan-camera">
+        <a-scene
+          embedded
+          vr-mode-ui="enabled: false"
+          renderer="precision: mediump;"
+          arjs="sourceType: webcam; debugUIEnabled: false;"
+        >
+          <a-marker type="barcode" value="1" class="m"></a-marker>
+          <a-marker type="barcode" value="2" class="m"></a-marker>
+          <a-marker type="barcode" value="3" class="m"></a-marker>
+          <a-marker type="barcode" value="4" class="m"></a-marker>
+          <a-marker type="barcode" value="5" class="m"></a-marker>
 
-  if (nextQuiz) {
-    setTimeout(() => {
-      window.location.href = nextQuiz + ".html";
-    }, 1000);
-  } else {
-    setTimeout(() => {
-      window.location.href = "suspect.html";
-    }, 1000);
-  }
-</script>
+          <a-entity camera></a-entity>
+        </a-scene>
+      </div>
 
+      <div class="scan-frame-outline"></div>
+    </div>
+
+    <button class="scan-cancel" onclick="location.href='overview.html'">Cancel</button>
+  </div>
+
+  <script>
+    const markerToPage = {
+      1: "quiz.html?marker=1",
+      2: "quiz.html?marker=2",
+      3: "quiz.html?marker=3",
+      4: "quiz.html?marker=4",
+      5: "quiz.html?marker=5",
+    };
+
+    let locked = false;
+
+    document.querySelectorAll("a-marker.m").forEach(marker => {
+      marker.addEventListener("markerFound", () => {
+        if (locked) return;
+        locked = true;
+        const value = Number(marker.getAttribute("value"));
+        window.location.href = markerToPage[value] || "quiz.html";
+      });
+    });
+  </script>
 </body>
 </html>
