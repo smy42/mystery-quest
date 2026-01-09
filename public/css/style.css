@@ -95,43 +95,64 @@ body {
 
 /* Back arrow */
 .back-arrow {
-  position: absolute;
+  position: fixed;
   top: 24px;
   left: 24px;
-  font-size: 36px;
-  text-decoration: none;
-  color: white;
+  width: 150px;
+  height: 150px;
+  z-index: 1000;
 }
-
-.back-arrow:hover {
-  opacity: 0.7;
+ 
+.back-arrow img {
+  width: 100%;
+  height: auto;
+  opacity: 0.9;
+  transition: transform 0.15s ease, opacity 0.15s ease;
 }
-
+ 
+.back-arrow:hover img {
+  transform: translateX(-4px) rotate(-2deg);
+  opacity: 1;
+}
 
 /* Instructions page */
 .instructions-title {
-  margin: 0 0 20px 0;
-  font-size: clamp(36px, 5vw, 64px);
+  font-family: 'Creepster', cursive;
+  font-size: 60px;
+  letter-spacing: 2px;
+  position: relative;
+  z-index: 2;
+  text-shadow: 0 0 6px rgba(255, 255, 255, 0.6);
 }
 
 .instructions-text {
-  max-width: 720px;
-  font-size: 20px;
-  margin-bottom: 30px;
+  font-family: 'Special Elite', monospace;
+  font-size: 18px;
+  color: rgba(255, 255, 255, 0.85);
+  max-width: 1000px;
+  margin: 0 auto 40px auto;
+  white-space: nowrap;
 }
 
 .instructions-list {
-  max-width: 720px;
-  text-align: left;
+  font-family: 'Special Elite', monospace;
   font-size: 18px;
-  line-height: 1.6;
-  margin-bottom: 30px;
+  color: rgba(255, 255, 255, 0.9);
+  max-width: 560px;
+  margin: 0 auto 48px auto;
+  line-height: 1.8;
+  text-align: left;
 }
 
 .warning-text {
-  color: #ff4d4d;
-  font-size: 18px;
-  margin-bottom: 40px;
+  font-family: 'Creepster', cursive;
+  font-size: 22px;
+  color: #ff2f2f;
+  text-align: center;
+  margin-top: 12px;
+  margin-bottom: 64px;
+  letter-spacing: 2px;
+  text-shadow: 0 0 6px rgba(255, 47, 47, 0.6);
 }
 
 
@@ -141,7 +162,11 @@ body {
 }
 
 .overview-title {
-  margin-bottom: 10px;
+  font-family: 'Special Elite', monospace;
+  font-size: clamp(44px, 6vw, 40px);
+  letter-spacing: 2px;
+  position: relative;
+  z-index: 2;
 }
 
 .overview-subtitle {
@@ -289,21 +314,31 @@ body.scan-page {
 }
 
 .scan-back {
-  width: 44px;
-  height: 44px;
-  border-radius: 12px;
-  border: none;
-  background: rgba(0,0,0,0.35);
-  color: #fff;
-  font-size: 22px;
-  cursor: pointer;
+  position: fixed;
+  top: 24px;
+  left: 24px;
+  width: 150px;
+  height: 150px;
+  z-index: 1000;
+}
+.scan-back img {
+  width: 100%;
+  height: auto;
+  opacity: 0.9;
+  transition: transform 0.15s ease, opacity 0.15s ease;
+}
+ 
+.scan-back:hover img {
+  transform: translateX(-4px) rotate(-2deg);
+  opacity: 1;
 }
 
 /* Titel */
 .scan-title {
   margin: 0;
-  font-family: 'Special Elite', monospace;
+  font-family: 'Creepster', cursive;
   font-size: clamp(36px, 5vw, 64px);
+  text-shadow: 0 0 6px rgba(255, 255, 255, 0.6);
 }
 
 .scan-subtitle {

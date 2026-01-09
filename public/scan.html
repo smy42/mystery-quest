@@ -6,6 +6,10 @@
   <title>Scan</title>
 
   <link rel="stylesheet" href="css/style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Special+Elite&family=Jeju+Myeongjo&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Creepster&display=swap" rel="stylesheet">
 
   <script src="https://aframe.io/releases/1.5.0/aframe.min.js"></script>
   <script src="https://cdn.jsdelivr.net/gh/AR-js-org/AR.js/aframe/build/aframe-ar.js"></script>
@@ -14,7 +18,9 @@
 <body class="scan-page">
   <div class="scan-ui">
     <div class="scan-topbar">
-      <button class="scan-back" onclick="history.back()">←</button>
+      <a href="overview.html" class="scan-back">
+    <img src="assets/knife.png" alt="Back">
+  </a>
     </div>
 
     <h1 class="scan-title">Scan a marker</h1>
