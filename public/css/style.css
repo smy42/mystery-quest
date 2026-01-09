@@ -184,3 +184,67 @@ body {
   filter: brightness(1.1);
   transform: translateY(-2px);
 }
+
+.quiz-btn {
+  background: rgba(255, 255, 255, 0.18);
+  color: #fff;
+  border: none;
+  cursor: pointer;
+}
+
+.quiz-input {
+  min-width: 320px;
+  padding: 18px 20px;
+  border-radius: 16px;
+  border: none;
+  font-size: 20px;
+  font-family: 'Special Elite', monospace;
+  text-align: center;
+
+  background: rgba(255, 255, 255, 0.9);
+  color: #1b1043;
+}
+
+.quiz-input::placeholder {
+  color: rgba(27, 16, 67, 0.6);
+}
+
+.morse-key {
+  max-width: 720px;
+  background: rgba(255, 255, 255, 0.12);
+  padding: 20px;
+  border-radius: 16px;
+  margin-bottom: 20px;
+}
+
+.morse-key h3 {
+  margin-top: 0;
+  margin-bottom: 16px;
+  text-align: center;
+}
+
+.morse-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px 16px;
+  font-family: 'Special Elite', monospace;
+  font-size: 16px;
+}
+
+@media (max-width: 480px) {
+  .morse-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+audio {
+  margin-bottom: 20px;
+}
+
+#feedback {
+  font-size: 20px;
+  margin-top: 20px;
+  min-height: 28px;
+}
+
+

@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Who is the murderer?</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<a href="overview.html" class="back-arrow">←</a>
+
+<main class="screen screen-start">
+
+  <h1>Who is the murderer?</h1>
+
+  <p class="instructions-text">
+    Based on the collected clues, select the suspect you believe is responsible.
+  </p>
+
+  <label>
+    <input type="radio" name="suspect" value="A">
+    Suspect A – Provided inconsistent statements
+  </label><br><br>
+
+  <label>
+    <input type="radio" name="suspect" value="B">
+    Suspect B – No access after 9:00 PM
+  </label><br><br>
+
+  <label>
+    <input type="radio" name="suspect" value="C">
+    Suspect C – No entry recorded in the security system
+  </label>
+
+  <div class="start-actions">
+    <button class="btn btn-primary" onclick="checkSuspect()">Confirm selection</button>
+  </div>
+
+</main>
+
+<script src="js/app.js"></script>
+</body>
+</html>
