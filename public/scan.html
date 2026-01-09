@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Scan Marker</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<main class="screen screen-start">
+  <h1>Scanning marker...</h1>
+  <p class="instructions-text">
+    Please hold the marker steady.
+  </p>
+</main>
+
+<script src="js/app.js"></script>
+<script>
+  const order = ["quiz1", "quiz2", "quiz3", "quiz4", "quiz5"];
+
+  const nextQuiz = order.find(q => localStorage.getItem(q) !== "solved");
+
+  if (nextQuiz) {
+    setTimeout(() => {
+      window.location.href = nextQuiz + ".html";
+    }, 1000);
+  } else {
+    setTimeout(() => {
+      window.location.href = "suspect.html";
+    }, 1000);
+  }
+</script>
+
+</body>
+</html>

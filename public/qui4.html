@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Clue Found – Voicemail</title>
+
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+<a href="overview.html" class="back-arrow">←</a>
+
+<main class="screen screen-start">
+
+  <h1>Clue found: Voicemail</h1>
+
+  <p class="instructions-text">
+    A voicemail was found on the victim’s phone.  
+    The message contains a sequence of tones instead of spoken words.
+  </p>
+
+  <!-- Audio -->
+  <audio controls>
+    <source src="audio/morse-hotel.mp3" type="audio/mpeg">
+    Your browser does not support the audio element.
+  </audio>
+
+  <!-- Morse Key -->
+  <div class="instructions-list">
+    <strong>Morse Code Key</strong>
+    <ul>
+      <li>.... = H</li>
+      <li>--- = O</li>
+      <li>- = T</li>
+      <li>. = E</li>
+      <li>.--.. = Z</li>
+      <li>.-.. = L</li>
+    </ul>
+  </div>
+
+  <!-- Input -->
+  <input
+    type="text"
+    id="morseAnswer"
+    placeholder="Enter decoded word"
+    class="btn"
+  />
+
+  <button class="btn btn-primary" onclick="checkMorse()">
+    Check Answer
+  </button>
+
+  <p id="feedback"></p>
+
+</main>
+
+<script src="js/app.js"></script>
+</body>
+</html>
