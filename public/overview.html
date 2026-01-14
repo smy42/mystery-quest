@@ -1,5 +1,6 @@
 <!doctype html>
 <html lang="de">
+
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -11,10 +12,10 @@
   <link href="https://fonts.googleapis.com/css2?family=Special+Elite&family=Jeju+Myeongjo&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Creepster&display=swap" rel="stylesheet">
 </head>
-<body>
 
-  <!-- Back arrow -->
-  <a href="instructions.html" class="back-arrow">
+<body class="overview">
+
+  <a href="index.html" class="back-arrow" id="backLink">
     <img src="assets/knife.png" alt="Back">
   </a>
 
@@ -66,36 +67,12 @@
     </section>
 
     <div class="start-actions">
-
-  <a
-    id="scanButton"
-    class="btn btn-primary"
-    href="scan.html"
-  >
-    Scan marker
-  </a>
-
-  <a
-    id="finalButton"
-    class="btn btn-primary"
-    href="suspect.html"
-    style="display:none"
-  >
-    Who is the murderer?
-  </a>
-
-  <button
-    id="restartButton"
-    class="btn btn-primary"
-    onclick="resetGame()"
-    style="display:none"
-  >
-    Restart the game
-  </button>
-
-</div>
-
-
+      <a id="scanButton" class="btn btn-primary" href="scan.html">Scan marker</a>
+      <a id="finalButton" class="btn btn-primary" href="suspect.html" style="display:none">Who is the murderer?</a>
+      <button id="restartButton" class="btn btn-primary" onclick="resetGame()" style="display:none">
+        Restart the game
+      </button>
+    </div>
 
   </main>
 

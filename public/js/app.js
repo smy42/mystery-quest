@@ -53,8 +53,6 @@ const gameConfig = {
 ===================== */
 
 document.addEventListener("DOMContentLoaded", () => {
-
-  // Status anzeigen
   document.querySelectorAll(".status").forEach(status => {
     const quiz = status.dataset.clue;
     const solved = localStorage.getItem(quiz);
@@ -72,21 +70,20 @@ document.addEventListener("DOMContentLoaded", () => {
   const finalBtn = document.getElementById("finalButton");
   const restartBtn = document.getElementById("restartButton");
 
+  if (!scanBtn || !finalBtn || !restartBtn) return;
+
   const allSolved = allCluesSolved();
   const caseSolved = localStorage.getItem("caseSolved") === "true";
 
-  // 🟢 Spiel läuft
   if (!allSolved && !caseSolved) {
     scanBtn.style.display = "block";
   }
 
-  // 🔓 Alle Clues solved → Täter wählen
   if (allSolved && !caseSolved) {
     scanBtn.style.display = "none";
     finalBtn.style.display = "block";
   }
 
-  // 🏁 Case solved → Neustart
   if (caseSolved) {
     scanBtn.style.display = "none";
     finalBtn.style.display = "none";
@@ -109,7 +106,7 @@ function checkQuiz(quizKey, isCorrect) {
     feedback.style.color = "#3cff6f";
 
     setTimeout(() => {
-      window.location.href = "overview.html";
+      window.location.href = "./overview.html";
     }, 1200);
   } else {
     feedback.textContent = "Incorrect. Try again.";
@@ -131,7 +128,7 @@ function checkMorse() {
     feedback.style.color = "#3cff6f";
 
     setTimeout(() => {
-      window.location.href = "overview.html";
+      window.location.href = "./overview.html";
     }, 1200);
   } else {
     feedback.textContent = "Incorrect. Listen carefully and try again.";
@@ -169,10 +166,105 @@ function checkSuspect() {
 }
 
 /* =====================
-   RESET (OPTIONAL)
+   RESET 
 ===================== */
 
 function resetGame() {
   localStorage.clear();
-  window.location.href = "overview.html";
+  window.location.href = "./overview.html?from=index";
 }
+
+/* =====================
+   MarkerScan 
+===================== */
+
+window.addEventListener("load", () => {
+  if (!document.body.classList.contains("scan-page")) return;
+
+  const markerToQuizNumber = {
+    1: 1,  // m1 -> quiz1
+    2: 2,  // m2 -> quiz2
+    3: 3,  // m3 -> quiz3
+    4: 4,  // m4 -> quiz4
+    5: 5   // m5 -> quiz5
+  };
+
+  const quizNumberToPage = {
+    1: "quiz1.html",
+    2: "quiz2.html",
+    3: "quiz3.html",
+    4: "quiz4.html",
+    5: "quiz5.html"
+  };
+
+  let locked = false;
+
+  document.querySelectorAll("a-marker.m").forEach(marker => {
+    marker.addEventListener("markerFound", () => {
+      if (locked) return;
+      locked = true;
+
+      const markerId = Number(marker.dataset.id); 
+      const quizNr = markerToQuizNumber[markerId];
+
+      if (!quizNr) {
+        window.location.href = "./overview.html";
+        return;
+      }
+
+      if (quizNr > 1) {
+        const prevSolved = localStorage.getItem(`quiz${quizNr - 1}`) === "solved";
+        if (!prevSolved) {
+          window.location.href = `./locked.html?need=${quizNr - 1}&tried=${quizNr}`;
+          return;
+        }
+      }
+
+      setTimeout(() => {
+        window.location.href = `./${quizNumberToPage[quizNr]}`;
+      }, 150);
+    });
+  });
+});
+
+/* =====================
+   LOCKED PAGE
+===================== */
+
+window.addEventListener("load", () => {
+  if (!document.body.classList.contains("locked-page")) return;
+
+  const params = new URLSearchParams(window.location.search);
+  const need = params.get("need");
+  const tried = params.get("tried");
+
+  if (need && tried) {
+    const text = document.getElementById("lockedText");
+    if (text) {
+      text.innerHTML = `
+        This clue is not available yet.<br>
+        Solve clue ${need} before scanning clue ${tried}.
+      `;
+    }
+  }
+});
+
+/* =====================
+   OVERVIEW BACK LINK
+===================== */
+
+window.addEventListener("load", () => {
+  if (!document.body.classList.contains("overview")) return;
+
+  const back = document.getElementById("backLink");
+  if (!back) return;
+
+  const from = new URLSearchParams(window.location.search).get("from");
+
+  if (from === "instructions") {
+    back.href = "./instructions.html";
+  } else {
+    back.href = "./index.html";
+  }
+});
+
