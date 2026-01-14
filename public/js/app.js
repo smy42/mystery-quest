@@ -60,9 +60,11 @@ document.addEventListener("DOMContentLoaded", () => {
     const solved = localStorage.getItem(quiz);
 
     if (solved === "solved") {
+      status.style.fontFamily = "'Special Elite', monospace";
       status.textContent = "✓ Solved";
       status.classList.add("solved");
     } else {
+      status.style.fontFamily = "'Special Elite', monospace";
       status.textContent = "🔒 Locked";
       status.classList.add("locked");
     }
@@ -103,18 +105,21 @@ function checkQuiz(quizKey, isCorrect) {
   const feedback = document.getElementById("feedback");
 
   if (isCorrect) {
-    localStorage.setItem(quizKey, "solved");
+  localStorage.setItem(quizKey, "solved");
 
-    feedback.textContent = "Correct! A new clue has been unlocked.";
-    feedback.style.color = "#3cff6f";
+  feedback.style.fontFamily = "'Special Elite', monospace";
+  feedback.textContent = "Correct! A new clue has been unlocked.";
+  feedback.style.color = "#3cff6f";
 
-    setTimeout(() => {
-      window.location.href = "overview.html";
-    }, 1200);
-  } else {
-    feedback.textContent = "Incorrect. Try again.";
-    feedback.style.color = "#ff4d4d";
-  }
+  setTimeout(() => {
+    window.location.href = "overview.html";
+  }, 1200);
+} else {
+  feedback.style.fontFamily = "'Special Elite', monospace";
+  feedback.textContent = "Incorrect. Try again.";
+  feedback.style.color = "#ff4d4d";
+}
+
 }
 
 /* =====================
@@ -127,6 +132,7 @@ function checkMorse() {
 
   if (input === "HOTEL") {
     localStorage.setItem("quiz4", "solved");
+    feedback.style.fontFamily = "'Special Elite', monospace";
     feedback.textContent = "Correct! A new clue has been unlocked.";
     feedback.style.color = "#3cff6f";
 
@@ -134,6 +140,7 @@ function checkMorse() {
       window.location.href = "overview.html";
     }, 1200);
   } else {
+    feedback.style.fontFamily = "'Special Elite', monospace";
     feedback.textContent = "Incorrect. Listen carefully and try again.";
     feedback.style.color = "#ff4d4d";
   }

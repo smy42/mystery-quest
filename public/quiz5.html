@@ -4,6 +4,10 @@
   <meta charset="utf-8">
   <title>Clue 5 – Guest Registry</title>
   <link rel="stylesheet" href="css/style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Special+Elite&family=Jeju+Myeongjo&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Creepster&display=swap" rel="stylesheet">
 </head>
 <body>
 
@@ -13,17 +17,17 @@
 
 <main class="screen screen-start">
 
-<h1>Clue found: Guest Registry</h1>
+<h1 class="clue2">Clue found: Guest Registry</h1>
 
-<p class="instructions-text">
+<p class="quiz-text">
 The front desk records all guest arrivals.
 </p>
 
 <p><strong>What confirms the suspect’s lie?</strong></p>
 
-<button class="btn quiz-btn" onclick="checkQuiz('quiz5', false)">Wrong room number</button>
-<button class="btn quiz-btn" onclick="checkQuiz('quiz5', true)">The guest claimed to arrive later but was already checked in</button>
-<button class="btn quiz-btn" onclick="checkQuiz('quiz5', false)">Missing signature</button>
+<button class="btn-quiz-btn" onclick="checkQuiz('quiz5', false)">Wrong room number</button>
+<button class="btn-quiz-btn" onclick="checkQuiz('quiz5', true)">The guest claimed to arrive later but was already checked in</button>
+<button class="btn-quiz-btn" onclick="checkQuiz('quiz5', false)">Missing signature</button>
 
 <p id="feedback"></p>
 

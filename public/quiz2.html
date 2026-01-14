@@ -4,6 +4,10 @@
   <meta charset="utf-8">
   <title>Clue 2 – Keycard Log</title>
   <link rel="stylesheet" href="css/style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Special+Elite&family=Jeju+Myeongjo&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Creepster&display=swap" rel="stylesheet">
 </head>
 <body>
 
@@ -13,17 +17,17 @@
 
 <main class="screen screen-start">
 
-<h1>Clue found: Keycard Log</h1>
+<h1 class="clue2">Clue found: Keycard Log</h1>
 
-<p class="instructions-text">
+<p class="quiz-text">
 The door system records every access to the room.
 </p>
 
 <p><strong>What is suspicious?</strong></p>
 
-<button class="btn quiz-btn" onclick="checkQuiz('quiz2', false)">No entries recorded</button>
-<button class="btn quiz-btn" onclick="checkQuiz('quiz2', true)">A keycard was used while the victim was inside</button>
-<button class="btn quiz-btn" onclick="checkQuiz('quiz2', false)">Multiple failed attempts</button>
+<button class="btn-quiz-btn" onclick="checkQuiz('quiz2', false)">No entries recorded</button>
+<button class="btn-quiz-btn" onclick="checkQuiz('quiz2', true)">A keycard was used while the victim was inside</button>
+<button class="btn-quiz-btn" onclick="checkQuiz('quiz2', false)">Multiple failed attempts</button>
 
 <p id="feedback"></p>
 

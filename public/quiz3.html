@@ -4,6 +4,10 @@
   <meta charset="utf-8">
   <title>Clue 3 – Mini Bar</title>
   <link rel="stylesheet" href="css/style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Special+Elite&family=Jeju+Myeongjo&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Creepster&display=swap" rel="stylesheet">
 </head>
 <body>
 
@@ -13,17 +17,17 @@
 
 <main class="screen screen-start">
 
-<h1>Clue found: Mini Bar</h1>
+<h1 class="clue2">Clue found: Mini Bar</h1>
 
-<p class="instructions-text">
+<p class="quiz-text">
 The minibar system logs every item removed.
 </p>
 
 <p><strong>What stands out?</strong></p>
 
-<button class="btn quiz-btn" onclick="checkQuiz('quiz3', true)">Two drinks were consumed, but the victim was alone</button>
-<button class="btn quiz-btn" onclick="checkQuiz('quiz3', false)">No items were taken</button>
-<button class="btn quiz-btn" onclick="checkQuiz('quiz3', false)">Items were taken earlier</button>
+<button class="btn-quiz-btn" onclick="checkQuiz('quiz3', true)">Two drinks were consumed, but the victim was alone</button>
+<button class="btn-quiz-btn" onclick="checkQuiz('quiz3', false)">No items were taken</button>
+<button class="btn-quiz-btn" onclick="checkQuiz('quiz3', false)">Items were taken earlier</button>
 
 <p id="feedback"></p>
 

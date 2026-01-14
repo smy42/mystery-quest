@@ -4,6 +4,10 @@
   <meta charset="utf-8">
   <title>Who is the murderer?</title>
   <link rel="stylesheet" href="css/style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Special+Elite&family=Jeju+Myeongjo&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Creepster&display=swap" rel="stylesheet">
 </head>
 <body>
 
@@ -13,26 +17,26 @@
 
 <main class="screen screen-start">
 
-  <h1>Who is the murderer?</h1>
+  <h1 class="clue2">Who is the murderer?</h1>
 
-  <p class="instructions-text">
+  <p class="quiz-text">
     Based on the collected clues, select the suspect you believe is responsible.
   </p>
 
-  <label>
-    <input type="radio" name="suspect" value="A">
-    Suspect A – Provided inconsistent statements
-  </label><br><br>
+ <label>
+  <input type="radio" name="suspect" value="A">
+  Suspect A – Provided inconsistent statements
+</label>
 
-  <label>
-    <input type="radio" name="suspect" value="B">
-    Suspect B – No access after 9:00 PM
-  </label><br><br>
+<label>
+  <input type="radio" name="suspect" value="B">
+  Suspect B – No access after 9:00 PM
+</label>
 
-  <label>
-    <input type="radio" name="suspect" value="C">
-    Suspect C – No entry recorded in the security system
-  </label>
+<label>
+  <input type="radio" name="suspect" value="C">
+  Suspect C – No entry recorded in the security system
+</label>
 
   <div class="start-actions">
     <button class="btn btn-primary" onclick="checkSuspect()">Confirm selection</button>
