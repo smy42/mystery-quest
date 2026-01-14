@@ -605,3 +605,13 @@ input[type="radio"] {
   position: relative;
   top: 30px;
 }
+
+body.locked-page {
+  min-height: 100vh;
+  background: radial-gradient(circle at top, #24125f, #1b1043);
+  color: #fff;
+}
+
+.btn {
+  pointer-events: auto;
+}
