@@ -380,7 +380,9 @@ body.scan-page {
 .scan-frame {
   margin-top: 36px;
   width: min(900px, 92vw);
-  height: min(420px, 44vh);
+  height: 60vh;
+  min-height: 320px;
+  max-height: 420px;
   border-radius: 28px;
   background: rgba(180,180,180,0.35);
   position: relative;

@@ -1,5 +1,6 @@
 <!doctype html>
 <html lang="de">
+
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
@@ -8,20 +9,21 @@
   <link rel="stylesheet" href="css/style.css" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Special+Elite&family=Jeju+Myeongjo&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Special+Elite&family=Jeju+Myeongjo&display=swap"
+    rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Creepster&display=swap" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=Nosifer&family=Butcherman&family=Eater&display=swap" rel="stylesheet">
 
-  <script src="https://aframe.io/releases/1.5.0/aframe.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/gh/AR-js-org/AR.js/aframe/build/aframe-ar.js"></script>
+  <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
+  <script src="https://raw.githack.com/jeromeetienne/AR.js/master/aframe/build/aframe-ar.js"></script>
 </head>
 
 <body class="scan-page">
   <div class="scan-ui">
     <div class="scan-topbar">
       <a href="overview.html" class="scan-back">
-    <img src="assets/knife.png" alt="Back">
-  </a>
+        <img src="assets/knife.png" alt="Back">
+      </a>
     </div>
 
     <h1 class="scan-title">Scan a marker</h1>
@@ -29,20 +31,31 @@
 
     <div class="scan-frame">
       <div class="scan-camera">
-        <a-scene
-          embedded
-          vr-mode-ui="enabled: false"
-          renderer="precision: mediump;"
-          arjs="sourceType: webcam; debugUIEnabled: false;"
-        >
-          <a-marker type="barcode" value="1" class="m"></a-marker>
-          <a-marker type="barcode" value="2" class="m"></a-marker>
-          <a-marker type="barcode" value="3" class="m"></a-marker>
-          <a-marker type="barcode" value="4" class="m"></a-marker>
-          <a-marker type="barcode" value="5" class="m"></a-marker>
+        <a-scene embedded vr-mode-ui="enabled: false" arjs="sourceType: webcam; debugUIEnabled: true;">
+
+          <a-marker type="pattern" url="./markers/pattern-m1.patt" class="m" data-id="1">
+            <a-box position="0 0.5 0" color="red"></a-box>
+          </a-marker>
+
+          <a-marker type="pattern" url="./markers/pattern-m2.patt" class="m" data-id="2">
+            <a-box position="0 0.5 0" color="red"></a-box>
+          </a-marker>
+
+          <a-marker type="pattern" url="./markers/pattern-m3.patt" class="m" data-id="3">
+            <a-box position="0 0.5 0" color="red"></a-box>
+          </a-marker>
+
+          <a-marker type="pattern" url="./markers/pattern-m4.patt" class="m" data-id="4">
+            <a-box position="0 0.5 0" color="red"></a-box>
+          </a-marker>
+
+          <a-marker type="pattern" url="./markers/pattern-m5.patt" class="m" data-id="5">
+            <a-box position="0 0.5 0" color="red"></a-box>
+          </a-marker>
 
           <a-entity camera></a-entity>
         </a-scene>
+
       </div>
 
       <div class="scan-frame-outline"></div>
@@ -51,25 +64,8 @@
     <button class="scan-cancel" onclick="location.href='overview.html'">Cancel</button>
   </div>
 
-  <script>
-    const markerToPage = {
-      1: "quiz.html?marker=1",
-      2: "quiz.html?marker=2",
-      3: "quiz.html?marker=3",
-      4: "quiz.html?marker=4",
-      5: "quiz.html?marker=5",
-    };
+  <script src="js/app.js" defer></script>
 
-    let locked = false;
-
-    document.querySelectorAll("a-marker.m").forEach(marker => {
-      marker.addEventListener("markerFound", () => {
-        if (locked) return;
-        locked = true;
-        const value = Number(marker.getAttribute("value"));
-        window.location.href = markerToPage[value] || "quiz.html";
-      });
-    });
-  </script>
 </body>
+
 </html>
