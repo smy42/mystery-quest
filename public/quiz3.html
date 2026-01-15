@@ -9,27 +9,37 @@
   <link href="https://fonts.googleapis.com/css2?family=Special+Elite&family=Jeju+Myeongjo&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Creepster&display=swap" rel="stylesheet">
 </head>
+
 <body>
 
 <a href="overview.html" class="back-arrow">
-    <img src="assets/knife.png" alt="Back">
+  <img src="assets/knife.png" alt="Back">
 </a>
 
 <main class="screen screen-start">
 
-<h1 class="clue2">Clue found: Mini Bar</h1>
+  <h1 class="clue2">Clue found: Mini Bar</h1>
 
-<p class="quiz-text">
-The minibar system logs every item removed.
-</p>
+  <p class="quiz-text">
+    The minibar system logs every item removed.
+    According to the report, only the victim was registered for the room that night.
+  </p>
 
-<p><strong>What stands out?</strong></p>
+  <p><strong>Why is this important?</strong></p>
 
-<button class="btn-quiz-btn" onclick="checkQuiz('quiz3', true)">Two drinks were consumed, but the victim was alone</button>
-<button class="btn-quiz-btn" onclick="checkQuiz('quiz3', false)">No items were taken</button>
-<button class="btn-quiz-btn" onclick="checkQuiz('quiz3', false)">Items were taken earlier</button>
+  <button class="btn-quiz-btn" onclick="checkQuiz('quiz3', true)">
+    Two drinks were consumed, but the victim was alone on record
+  </button>
 
-<p id="feedback"></p>
+  <button class="btn-quiz-btn" onclick="checkQuiz('quiz3', false)">
+    No items were taken, so nobody entered the room
+  </button>
+
+  <button class="btn-quiz-btn" onclick="checkQuiz('quiz3', false)">
+    The minibar proves the door was left open
+  </button>
+
+  <p id="feedback"></p>
 
 </main>
 

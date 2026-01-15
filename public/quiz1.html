@@ -3,12 +3,13 @@
 <head>
   <meta charset="utf-8">
   <title>Clue 1 – Crime Scene</title>
-   <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/style.css" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Special+Elite&family=Jeju+Myeongjo&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Creepster&display=swap" rel="stylesheet">
 </head>
+
 <body>
 
 <a href="overview.html" class="back-arrow">
@@ -17,20 +18,28 @@
 
 <main class="screen screen-start">
 
-<h1 class="clue2">Clue found: Hotel Room</h1>
+  <h1 class="clue2">Clue found: Crime Scene</h1>
 
-<p class="quiz-text">
-The victim was found in the hotel room.  
-There are no signs of forced entry.
-</p>
+  <p class="quiz-text">
+    The victim was found at the crime scene during the night.
+    Investigators found no signs of forced entry, and nothing appeared damaged or broken.
+  </p>
 
-<p><strong>What does this suggest?</strong></p>
+  <p><strong>What does this suggest?</strong></p>
 
-<button class="btn-quiz-btn" onclick="checkQuiz('quiz1', false)">The door was broken open</button>
-<button class="btn-quiz-btn" onclick="checkQuiz('quiz1', true)">The victim knew the attacker</button>
-<button class="btn-quiz-btn" onclick="checkQuiz('quiz1', false)">The room was empty</button>
+  <button class="btn-quiz-btn" onclick="checkQuiz('quiz1', false)">
+    The attacker must have climbed in through a window
+  </button>
 
-<p id="feedback"></p>
+  <button class="btn-quiz-btn" onclick="checkQuiz('quiz1', true)">
+    The victim willingly let the attacker in
+  </button>
+
+  <button class="btn-quiz-btn" onclick="checkQuiz('quiz1', false)">
+    The attacker used brute force to enter
+  </button>
+
+  <p id="feedback"></p>
 
 </main>
 

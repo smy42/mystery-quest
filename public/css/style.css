@@ -141,7 +141,7 @@ body {
   color: rgba(255, 255, 255, 0.85);
   max-width: 1000px;
   margin: 0 auto 40px auto;
-  white-space: nowrap;
+  white-space: normal;
 }
 
 .instructions-list {
@@ -219,7 +219,7 @@ body {
   color: rgba(255, 255, 255, 0.85);
   max-width: 1000px;
   margin: 0 auto 40px auto;
-  white-space: nowrap;
+  white-space: normal;
 }
 
 .clue {
@@ -228,7 +228,7 @@ body {
   color: rgba(255, 255, 255, 0.85);
   max-width: 1000px;
   margin: 0 auto 40px auto;
-  white-space: nowrap;
+  white-space: normal;
 }
 
 .btn-secondary {
@@ -326,11 +326,11 @@ body.scan-page {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;  /* bleibt mittig */
+  justify-content: center; 
 
   padding: 20px;
   text-align: center;
-  pointer-events: none;     /* nur Buttons klickbar machen wir extra */
+  pointer-events: none;     
 }
 
 /* Topbar */
@@ -422,7 +422,7 @@ body.scan-page {
 /* ===== Cancel ===== */
 .scan-cancel {
   display: block;
-  width: 340px;                 /* 🔑 gleiche Länge wie vorher */
+  width: 340px;                 
   margin: 12px auto;
   padding: 14px 22px;
 
@@ -532,7 +532,7 @@ strong {
 
 .morse-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr); /* 👈 3 Spalten = übersichtlich */
+  grid-template-columns: repeat(3, 1fr); 
   gap: 14px 26px;
 
   font-family: 'Special Elite', monospace;
@@ -554,13 +554,13 @@ label {
 
   max-width: 600px;
   margin: 6px auto;
-  margin-top: 20px;        /* 🔑 viel näher zusammen */
-  padding: 6px 8px;        /* 🔑 wenig Luft */
+  margin-top: 20px;        
+  padding: 6px 8px;       
 
   font-family: 'Special Elite', monospace;
   font-size: 20px;
   color: rgba(255, 255, 255, 0.9);
-  background: rgba(255, 255, 255, 0.08);  /* 🔑 Box wieder da */
+  background: rgba(255, 255, 255, 0.08);  
   border-radius: 12px;
 }
 
@@ -604,4 +604,34 @@ input[type="radio"] {
 .btn {
   position: relative;
   top: 30px;
+}
+
+/* Briefing / Overview text spacing fix */
+.overview-item {
+  margin-bottom: 1.5rem;
+}
+
+.overview-item h2 {
+  margin-bottom: 0.75rem;
+}
+
+.overview-item .description {
+  margin-bottom: 1rem;
+  line-height: 1.6;
+}
+
+.overview-item h2 {
+  margin-bottom: 1.2rem;
+}
+
+.quiz-text {
+  font-family: 'Special Elite', monospace;
+  font-size: 18px;
+  color: rgba(255, 255, 255, 0.85);
+
+  max-width: 680px;      
+  margin: 0 auto 28px;   
+
+  line-height: 1.6;     
+  text-align: center;
 }

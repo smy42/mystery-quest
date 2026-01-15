@@ -1,38 +1,54 @@
 <!doctype html>
 <html lang="en">
+
 <head>
   <meta charset="utf-8">
   <title>Clue 2 – Keycard Log</title>
   <link rel="stylesheet" href="css/style.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Special+Elite&family=Jeju+Myeongjo&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Special+Elite&family=Jeju+Myeongjo&display=swap"
+    rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Creepster&display=swap" rel="stylesheet">
 </head>
+
 <body>
 
-<a href="overview.html" class="back-arrow">
+  <a href="overview.html" class="back-arrow">
     <img src="assets/knife.png" alt="Back">
-</a>
+  </a>
 
-<main class="screen screen-start">
+  <main class="screen screen-start">
 
-<h1 class="clue2">Clue found: Keycard Log</h1>
+    <h1 class="clue2">Clue found: Keycard Log</h1>
 
-<p class="quiz-text">
-The door system records every access to the room.
-</p>
+    <p class="quiz-text">
+      The door system records every use of the room’s keycard.
+      According to the log, the card was used again later that night,
+      although the victim did not leave the room.
+    </p>
 
-<p><strong>What is suspicious?</strong></p>
 
-<button class="btn-quiz-btn" onclick="checkQuiz('quiz2', false)">No entries recorded</button>
-<button class="btn-quiz-btn" onclick="checkQuiz('quiz2', true)">A keycard was used while the victim was inside</button>
-<button class="btn-quiz-btn" onclick="checkQuiz('quiz2', false)">Multiple failed attempts</button>
 
-<p id="feedback"></p>
+    <p><strong>Why is this suspicious?</strong></p>
 
-</main>
+    <button class="btn-quiz-btn" onclick="checkQuiz('quiz2', false)">
+      The system might be malfunctioning
+    </button>
 
-<script src="js/app.js"></script>
+    <button class="btn-quiz-btn" onclick="checkQuiz('quiz2', true)">
+      The victim’s keycard was used without their knowledge
+    </button>
+
+    <button class="btn-quiz-btn" onclick="checkQuiz('quiz2', false)">
+      Too many people had access to the room
+    </button>
+
+    <p id="feedback"></p>
+
+  </main>
+
+  <script src="js/app.js"></script>
 </body>
+
 </html>

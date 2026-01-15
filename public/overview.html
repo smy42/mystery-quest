@@ -12,7 +12,6 @@
   <link href="https://fonts.googleapis.com/css2?family=Special+Elite&family=Jeju+Myeongjo&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Creepster&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Nosifer&family=Butcherman&family=Eater&display=swap" rel="stylesheet">
-
 </head>
 
 <body class="overview">
@@ -25,14 +24,15 @@
 
     <h1 class="overview-title">Investigation Overview</h1>
     <p class="overview-subtitle">
-      Track your progress and review discovered clues!
+      Track your progress and review the collected clues.
     </p>
 
     <section class="overview-item">
-      <h2 class="clue">Clue 1 – Hotel Room</h2>
+      <h2 class="clue">Clue 1 – Crime Scene</h2>
       <p class="status" data-clue="quiz1"></p>
       <p class="description">
-        The victim was found in the hotel room. No signs of forced entry were detected.
+        The victim was found during the night.
+        No signs of forced entry were detected.
       </p>
     </section>
 
@@ -40,23 +40,25 @@
       <h2 class="clue">Clue 2 – Keycard Log</h2>
       <p class="status" data-clue="quiz2"></p>
       <p class="description">
-        Electronic door access logs show unusual activity during the night.
+        Door access records show activity that does not match the victim’s movements.
       </p>
     </section>
 
     <section class="overview-item">
-      <h2 class="clue">Clue 3 – Mini Bar Receipt</h2>
+      <h2 class="clue">Clue 3 – Mini Bar</h2>
       <p class="status" data-clue="quiz3"></p>
       <p class="description">
-        The minibar system recorded consumption that does not match the booking details.
+        The minibar log suggests the victim was not alone,
+        despite the room being registered to one person.
       </p>
     </section>
 
     <section class="overview-item">
-      <h2 class="clue">Clue 4 – Voicemail Recording</h2>
+      <h2 class="clue">Clue 4 – Voicemail</h2>
       <p class="status" data-clue="quiz4"></p>
       <p class="description">
-        A voicemail containing a sequence of audio signals was found on the victim’s phone.
+        An unsent voicemail containing a sequence of tones
+        was found on the victim’s phone.
       </p>
     </section>
 
@@ -64,13 +66,19 @@
       <h2 class="clue">Clue 5 – Guest Registry</h2>
       <p class="status" data-clue="quiz5"></p>
       <p class="description">
-        Guest check-in data reveals inconsistencies in one suspect’s statement.
+        Check-in records contradict one suspect’s statement about their arrival.
       </p>
     </section>
 
     <div class="start-actions">
-      <a id="scanButton" class="btn btn-primary" href="scan.html">Scan marker</a>
-      <a id="finalButton" class="btn btn-primary" href="suspect.html" style="display:none">Who is the murderer?</a>
+      <a id="scanButton" class="btn btn-primary" href="scan.html">
+        Scan marker
+      </a>
+
+      <a id="finalButton" class="btn btn-primary" href="suspect.html" style="display:none">
+        Who is the murderer?
+      </a>
+
       <button id="restartButton" class="btn btn-primary" onclick="resetGame()" style="display:none">
         Restart the game
       </button>

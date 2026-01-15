@@ -1,49 +1,55 @@
 <!doctype html>
 <html lang="en">
+
 <head>
   <meta charset="utf-8">
   <title>Who is the murderer?</title>
   <link rel="stylesheet" href="css/style.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Special+Elite&family=Jeju+Myeongjo&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Special+Elite&family=Jeju+Myeongjo&display=swap"
+    rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Creepster&display=swap" rel="stylesheet">
 </head>
+
 <body>
 
-<a href="overview.html" class="back-arrow">
+  <a href="overview.html" class="back-arrow">
     <img src="assets/knife.png" alt="Back">
-</a>
+  </a>
 
-<main class="screen screen-start">
+  <main class="screen screen-start">
 
-  <h1 class="clue2">Who is the murderer?</h1>
+    <h1 class="clue2">Who is the murderer?</h1>
 
-  <p class="quiz-text">
-    Based on the collected clues, select the suspect you believe is responsible.
-  </p>
+    <p class="quiz-text">
+      Investigators reviewed everyone who had contact with the victim or was present in the building that night.
+      Based on the collected clues, choose the person whose story does not match the evidence.
+    </p>
 
- <label>
-  <input type="radio" name="suspect" value="A">
-  Suspect A – Provided inconsistent statements
-</label>
+    <label>
+      <input type="radio" name="suspect" value="A">
+      Suspect A – A friend of the victim, seen together earlier that day in the hotel lobby
+    </label>
 
-<label>
-  <input type="radio" name="suspect" value="B">
-  Suspect B – No access after 9:00 PM
-</label>
+    <label>
+      <input type="radio" name="suspect" value="B">
+      Suspect B – The only other guest staying on the same floor, reviewed due to proximity
+    </label>
 
-<label>
-  <input type="radio" name="suspect" value="C">
-  Suspect C – No entry recorded in the security system
-</label>
+    <label>
+      <input type="radio" name="suspect" value="C">
+      Suspect C – An acquaintance of the victim who was also staying in the hotel and whose statements conflict with
+      records
+    </label>
 
-  <div class="start-actions">
-    <button class="btn btn-primary" onclick="checkSuspect()">Confirm selection</button>
-  </div>
+    <div class="start-actions">
+      <button class="btn btn-primary" onclick="checkSuspect()">Confirm selection</button>
+    </div>
 
-</main>
+  </main>
 
-<script src="js/app.js"></script>
+  <script src="js/app.js"></script>
 </body>
+
 </html>
