@@ -231,14 +231,7 @@ function resetGame() {
 window.addEventListener("load", () => {
   if (!document.body.classList.contains("scan-page")) return;
 
-  const markerToQuizNumber = {
-    1: 1,  // m1 -> quiz1
-    2: 2,  // m2 -> quiz2
-    3: 3,  // m3 -> quiz3
-    4: 4,  // m4 -> quiz4
-    5: 5   // m5 -> quiz5
-  };
-
+  const markerToQuizNumber = { 1: 1, 2: 2, 3: 3, 4: 4, 5: 5 };
   const quizNumberToPage = {
     1: "quiz1.html",
     2: "quiz2.html",
@@ -247,35 +240,53 @@ window.addEventListener("load", () => {
     5: "quiz5.html"
   };
 
-  let locked = false;
+  let navigating = false;
+  let confirmTimer = null;
+
+  const confirmAndGo = (markerEl) => {
+    if (navigating) return;
+
+    if (!markerEl.object3D || markerEl.object3D.visible !== true) return;
+
+    navigating = true;
+
+    const markerId = Number(markerEl.dataset.id);
+    const quizNr = markerToQuizNumber[markerId];
+
+    if (!quizNr) {
+      window.location.href = "./overview.html";
+      return;
+    }
+
+    if (quizNr > 1) {
+      const prevSolved = localStorage.getItem(`quiz${quizNr - 1}`) === "solved";
+      if (!prevSolved) {
+        window.location.href = `./locked.html?need=${quizNr - 1}&tried=${quizNr}`;
+        return;
+      }
+    }
+
+    window.location.href = `./${quizNumberToPage[quizNr]}`;
+  };
 
   document.querySelectorAll("a-marker.m").forEach(marker => {
     marker.addEventListener("markerFound", () => {
-      if (locked) return;
-      locked = true;
+      if (navigating) return;
 
-      const markerId = Number(marker.dataset.id);
-      const quizNr = markerToQuizNumber[markerId];
+      if (confirmTimer) clearTimeout(confirmTimer);
 
-      if (!quizNr) {
-        window.location.href = "./overview.html";
-        return;
+      confirmTimer = setTimeout(() => confirmAndGo(marker), 160);
+    });
+
+    marker.addEventListener("markerLost", () => {
+      if (confirmTimer) {
+        clearTimeout(confirmTimer);
+        confirmTimer = null;
       }
-
-      if (quizNr > 1) {
-        const prevSolved = localStorage.getItem(`quiz${quizNr - 1}`) === "solved";
-        if (!prevSolved) {
-          window.location.href = `./locked.html?need=${quizNr - 1}&tried=${quizNr}`;
-          return;
-        }
-      }
-
-      setTimeout(() => {
-        window.location.href = `./${quizNumberToPage[quizNr]}`;
-      }, 150);
     });
   });
 });
+
 
 /* =====================
    LOCKED PAGE
@@ -295,6 +306,41 @@ window.addEventListener("load", () => {
         This clue is not available yet.<br>
         Solve clue ${need} before scanning clue ${tried}.
       `;
+    }
+  }
+});
+
+/* =========================
+   DIRECT URL ACCESS GUARD
+   ========================= */
+   
+document.addEventListener("DOMContentLoaded", () => {
+  let quizNr = Number(document.body.dataset.quiz);
+
+  if (!quizNr) {
+    const file = (window.location.pathname.split("/").pop() || "").toLowerCase();
+    const m = file.match(/^quiz([1-5])\.html$/);
+    if (m) quizNr = Number(m[1]);
+  }
+
+  if (!quizNr) return; 
+
+  for (let i = 1; i < quizNr; i++) {
+    if (localStorage.getItem(`quiz${i}`) !== "solved") {
+      window.location.replace(`./locked.html?need=${i}&target=${quizNr}`);
+      return;
+    }
+  }
+});
+
+document.addEventListener("DOMContentLoaded", () => {
+  const file = (window.location.pathname.split("/").pop() || "").toLowerCase();
+  if (file !== "suspect.html") return;
+
+  for (let i = 1; i <= 5; i++) {
+    if (localStorage.getItem(`quiz${i}`) !== "solved") {
+      window.location.replace(`./locked.html?need=${i}&target=suspect`);
+      return;
     }
   }
 });
@@ -349,3 +395,40 @@ window.addEventListener("load", () => {
   }
 });
 
+document.addEventListener("DOMContentLoaded", () => {
+  if (!document.body.classList.contains("scan-page")) return;
+
+  const pickVideo = () =>
+    document.querySelector("#arjs-video") ||
+    document.querySelector(".arjs-video") ||
+    document.querySelector("video");
+
+  const attach = (video) => {
+    if (!video || video.dataset.cameraListeners === "1") return;
+
+    video.dataset.cameraListeners = "1";
+
+    const setOn = () => document.body.classList.add("camera-on");
+    const setOff = () => document.body.classList.remove("camera-on");
+
+    video.addEventListener("playing", setOn);
+    video.addEventListener("pause", setOff);
+    video.addEventListener("ended", setOff);
+
+    if (!video.paused) setOn();
+  };
+
+  attach(pickVideo());
+
+  const obs = new MutationObserver(() => {
+    const v = pickVideo();
+    if (v) {
+      attach(v);
+      obs.disconnect();
+    }
+  });
+
+  obs.observe(document.body, { childList: true, subtree: true });
+
+  setTimeout(() => obs.disconnect(), 8000);
+});

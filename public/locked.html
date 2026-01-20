@@ -10,30 +10,30 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Special+Elite&family=Jeju+Myeongjo&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Creepster&display=swap" rel="stylesheet">
 </head>
 
-<body class="locked-page">
+<body>
 
-  <div class="scan-ui">
-    <div class="scan-topbar">
-      <a href="overview.html" class="scan-back">
-        <img src="assets/knife.png" alt="Back">
-      </a>
-    </div>
+  <a href="overview.html" class="back-arrow">
+    <img src="assets/knife.png" alt="Back">
+  </a>
 
-    <h1 class="scan-title">Clue locked</h1>
+  <main class="screen screen-start">
 
-    <p class="scan-subtitle" id="lockedText">
+    <h1 class="clue2">Clue locked</h1>
+
+    <p class="quiz-text" id="lockedText">
       This clue is not available yet.<br>
       Solve the previous puzzle first.
     </p>
 
-    <button class="scan-cancel" onclick="location.href='overview.html'">
+    <button class="btn-quiz-btn" type="button" onclick="location.href='overview.html'">
       Back to overview
     </button>
-  </div>
 
-<script src="js/app.js" defer></script>
+  </main>
 
+  <script src="js/app.js"></script>
 </body>
 </html>

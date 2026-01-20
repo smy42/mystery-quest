@@ -635,3 +635,30 @@ input[type="radio"] {
   line-height: 1.6;     
   text-align: center;
 }
+
+.scan-page.camera-on .scan-title,
+.scan-page.camera-on .scan-subtitle {
+  color: #fff;
+  text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.6);
+  display: inline-block;
+
+  background: #24125f; 
+  padding: 10px 16px;
+  border-radius: 14px;
+
+  box-shadow: 
+    0 0 12px 6f6bb8,   
+    0 4px 12px rgba(0, 0, 0, 0.35);   
+
+  backdrop-filter: blur(3px);
+}
+
+.scan-page.camera-on .scan-title { 
+  margin-bottom: 12px;
+}
+
+.scan-page.camera-on .scan-subtitle { 
+  margin-top: 0;
+  font-size: 0.95em;
+  opacity: 0.9;
+}
